@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beatriz Rocha | Biologist & Data Scientist</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind custom config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'olive-dark': '#4a4c3f',
+            'olive-medium': '#646755',
+            'olive-light': '#b1b695',
+          },
+          fontFamily: {
+            grotesk: ['"Space Grotesk"', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: #ffffff;
+      color: #2e2e2e;
+      scroll-behavior: smooth;
+      line-height: 1.6;
+      padding: 2rem;
+    }
+
+    .about-card {
+      background-color: #f2f2eb;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      max-width: 800px;
+      margin: 2rem auto;
+      text-align: justify;
+    }
+
+    .contact-info {
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .contact-info i {
+      margin-right: 0.5rem;
+      color: #4a4c3f;
+    }
+
+    .contact-info a {
+      color: #4a4c3f;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #4a4c3f, #646755, #b1b695);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-size: 200% 200%;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="text-center mt-4">
+    <img src="beatriz.jpg" alt="Photo of Beatriz Rocha" class="mx-auto mt-6 rounded-full w-40 h-40 object-cover shadow-lg">
+    <h1 class="text-4xl font-bold gradient-text mt-4">Beatriz Rocha</h1>
+    <p class="text-lg text-gray-700">Computational Immunologist & Data Scientist</p>
+  </header>
+
+  <section class="about-card">
+    <h2 class="text-2xl font-bold text-center mb-4">About me</h2>
+    <p>
+      I am a postdoctoral researcher in Computational Immunology, passionate about the intersection of microbial genomics and vaccine development. My research focuses on probiogenomics, recombinant lactic acid bacteria, and the in silico analysis of beneficial microorganisms such as <i>Weissella paramesenteroides</i>.
+    </p>
+    <p>
+      I conducted my PhD at UFSC and participated in COVID-19 research initiatives in Minas Gerais. I have experience in cloning, ELISA, and bioinformatics, and my work bridges computational analysis with experimental validation.
+    </p>
+    <p>
+      Outside the lab, I appreciate literature, science communication, and exploring connections between microbiota and human health.
+    </p>
+
+    <div class="contact-info mt-4">
+      <div><i class="fas fa-envelope"></i><a href="mailto:b.rocha@posgrad.ufsc.br">b.rocha@posgrad.ufsc.br</a></div>
+      <div><i class="fas fa-map-marker-alt"></i> Florianópolis, Brazil</div>
+    </div>
+  </section>
+</body>
+</html>

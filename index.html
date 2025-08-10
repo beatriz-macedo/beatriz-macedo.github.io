@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beatriz Rocha | Biologist & Data Scientist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        /* valores originais substituídos por tons oliva / pastéis */
+                        'olive-dark': '#4a4c3f',
+                        'sage': '#b1b695',
+                        'olive': '#646755',
+                        'pastel-green': '#dce4d6',
+                        'pastel-yellow': '#f7f3d7'   /* pastel-yellow */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #4a4c3f, #646755, #b1b695, #d3d7c6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            /* animation: gradient 5s ease infinite; */
+            background-size: 200% 200%;
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .skill-pill:hover {
+            transform: scale(1.1);
+        }
+        
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 24px;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(to bottom, #b1b695, #646755);
+        }
+        
+        .neon-border {
+            position: relative;
+        }
+        
+        .neon-border::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 0.5rem;
+            padding: 2px;
+            background: linear-gradient(45deg, #b1b695, #646755);
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="gradient-text text-2xl font-bold">BEATRIZ ROCHA</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-white hover:text-olive-dark px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="#about" class="text-white hover:text-sage px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <a href="#skills" class="text-white hover:text-pastel-green px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                        <a href="#experience" class="text-white hover:text-olive px-3 py-2 rounded-md text-sm font-medium">Experience</a>
+                        <a href="#projects" class="text-white hover:text-pastel-yellow px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                        <a href="#contact" class="text-white hover:text-olive-dark px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-black/90 border-t border-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#about" class="text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="#skills" class="text-white block px-3 py-2 rounded-md text-base font-medium">Skills</a>
+                <a href="#experience" class="text-white block px-3 py-2 rounded-md text-base font-medium">Experience</a>
+                <a href="#projects" class="text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                <a href="#contact" class="text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto min-h-screen flex items-center">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                    <span class="gradient-text">Biologist & Data Scientist</span>
+                    <span class="block">Researcher</span>
+                </h1>
+                <p class="text-xl text-gray-300 mb-8">Researcher in computational immunology and single-cell RNA-seq data analysis for characterization of TCR repertoires, contributing to advances in vaccine research and human health.</p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="bg-gradient-to-r from-olive-dark to-sage text-black px-6 py-3 rounded-full font-bold hover:opacity-90 transition-all">Get In Touch</a>
+                    <a href="#projects" class="border-2 border-olive-dark text-olive-dark px-6 py-3 rounded-full font-bold hover:bg-olive-dark hover:text-black transition-all">View Projects</a>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="neon-border w-full h-96 rounded-lg flex items-center justify-center">
+                    <div class="w-full h-full bg-gradient-to-br from-purple-900/30 to-blue-900/30 rounded-lg flex items-center justify-center">
+                        <div class="text-center p-6">
+                            <img src="beatriz.jpg" alt="Beatriz Rocha" class="w-56 h-56 rounded-full mx-auto mb-4 border-4 border-sage object-cover shadow-lg">
+                            <h3 class="text-2xl font-bold gradient-text">Beatriz Rocha</h3>
+                            <p class="text-gray-300 mt-2">Ph.D. in Biological Sciences - Genetics and Biotechnology</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gradient-to-b from-gray-900 to-black">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4"><span class="gradient-text">About</span> Me</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-olive-dark to-sage mx-auto"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="neon-border p-1 rounded-lg h-full">
+                    <div class="bg-gray-900 rounded-lg p-8 h-full">
+                        <h3 class="text-2xl font-bold text-white mb-4">Education</h3>
+                        <div class="space-y-6">
+                            <div class="relative pl-8 timeline-item">
+                                <div class="absolute left-0 w-4 h-4 rounded-full bg-sage top-1"></div>
+                                <h4 class="text-xl font-bold text-white">Federal University of Juiz de Fora</h4>
+                                <p class="text-olive-dark">Doctoral Degree in Biology, 2020-2024</p>
+                                <p class="text-gray-400">Emphasis: Genetics and Biotechnology</p>
+                                <p class="text-gray-400">Thesis: Weissella paramesenteroides UFTM 2.6.1: Probiotic Potential and Biotechnological Applications</p>
+                            </div>
+
+                            <div class="relative pl-8 timeline-item">
+                                <div class="absolute left-0 w-4 h-4 rounded-full bg-sage top-1"></div>
+                                <h4 class="text-xl font-bold text-white">Estácio de Sá University Center</h4>
+                                <p class="text-olive-dark">Technological Bachelor's Degree in Data Science, 2021-2023</p>
+                            </div>
+                            
+                            <div class="relative pl-8 timeline-item">
+                                <div class="absolute left-0 w-4 h-4 rounded-full bg-sage top-1"></div>
+                                <h4 class="text-xl font-bold text-white">Federal University of Juiz de Fora</h4>
+                                <p class="text-olive-dark">Master's Degree in Biology, 2018-2020</p>
+                                <p class="text-gray-400">Dissertation: Associations between Obesity and Gut Microbiota in Experimental Tuberculosis</p>
+                            </div>
+
+                            <div class="relative pl-8 timeline-item">
+                                <div class="absolute left-0 w-4 h-4 rounded-full bg-sage top-1"></div>
+                                <h4 class="text-xl font-bold text-white">Instituto Brasil de Ensino</h4>
+                                <p class="text-olive-dark">Postgraduate degree in Clinical Analysis, 2019-2019</p>
+                            </div>
+                            
+                            <div class="relative pl-8 timeline-item">
+                                <div class="absolute left-0 w-4 h-4 rounded-full bg-sage top-1"></div>
+                                <h4 class="text-xl font-bold text-white">Federal University of Juiz de Fora</h4>
+                                <p class="text-olive-dark">Bachelor's and Licentiate Degrees in Biological Sciences, 2011-2017</p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p class="text-gray-300 mb-6 text-lg leading-relaxed">
+                    Biologist and Data Scientist with solid experience in genomics and transcriptomics, currently a researcher in computational immunology and single-cell RNA-seq data analysis for characterization of TCR repertoires, contributing to advances in vaccine research and human health.
+                </p>
+                <p class="text-gray-300 mb-6 text-lg leading-relaxed">
+                    Demonstrates exceptional skills in scientific communication and networking, evidenced by interactions with researchers at scientific conferences. Experienced in resource management and negotiation, highlighted by efficient coordination of supplies and research reagent quotations.
+                </p>
+                <p class="text-gray-300 text-lg leading-relaxed">
+                    With an innovative approach, utilizes high-throughput sequencing data and performs data processing and analysis in Bash, R, and Python to solve complex challenges in immunology, translating scientific data into practical insights.
+                </p>
+                <p class="text-gray-300 mb-6 text-lg leading-relaxed">
+                    Passionate about digital innovation and biotechnology, seeks to integrate technology and science to drive effective solutions, leading initiatives that promote the advancement of scientific knowledge and its practical application in clinical and industrial contexts.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-black">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">My <span class="gradient-text">Skills</span></h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-olive-dark to-sage mx-auto"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Programming Skills -->
+            <div class="neon-border p-1 rounded-lg h-full">
+                <div class="bg-gray-900 rounded-lg p-6 h-full">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-code text-2xl mr-3 gradient-text"></i>
+                        <h3 class="text-xl font-bold text-white">Programming</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full text-white transition-all">Bash</span>
+                        <span class="skill-pill px-4 py-2 bg-gradient-to-r from-amber-500 to-pink-500 rounded-full text-white transition-all">Python</span>
+                        <span class="skill-pill px-4 py-2 bg-gradient-to-r from-green-500 to-teal-500 rounded-full text-white transition-all">R</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bioinformatics Tools -->
+            <div class="neon-border p-1 rounded-lg h-full">
+                <div class="bg-gray-900 rounded-lg p-6 h-full">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-microscope text-2xl mr-3 gradient-text"></i>
+                        <h3 class="text-xl font-bold text-white">Bioinformatics</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full text-white transition-all">Sequence Analysis</span>
+                        <span class="skill-pill px-4 py-2 bg-gradient-to-r from-amber-500 to-pink-500 rounded-full text-white transition-all">RNA-seq</span>
+                        <span class="skill-pill px-4 py-2 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full text-white transition-all">scRNA-seq</span>
+                        <span class="skill-pill px-4 py-2 bg-gradient-to-r from-red-500 to-orange-500 rounded-full text-white transition-all">TCR-seq</span>
+                        <span class="skill-pill px-4 py-2 bg-gradient-to-r from-fuchsia-500 to-purple-500 rounded-full text-white transition-all">Protein Prediction</span>
+                        <span class="skill-pill px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full text-white transition-all">Comparative Genomics</span>
+                        <span class="skill-pill px-4 py-2 bg-gradient-to-r from-green-500 to-teal-500 rounded-full text-white transition-all">Pangenome Analysis</span>
+                        <span class="skill-pill px-4 py-2 bg-gradient-to-r from-pink-500 to-rose-500 rounded-full text-white transition-all">NGS Analysis</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Advanced Techniques -->
+            <div class="neon-border p-1 rounded-lg h-full">
+                <div class="bg-gray-900 rounded-lg p-6 h-full">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-brain text-2xl mr-3 gradient-text"></i>
+                        <h3 class="text-xl font-bold text-white">Advanced Techniques</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full text-white transition-all">GROMACS</span>
+                        <span class="skill-pill px-4 py-2 bg-gradient-to-r from-amber-500 to-pink-500 rounded-full text-white transition-all">NAMD/VMD</span>
+                        <span class="skill-pill px-4 py-2 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full text-white transition-all">MD Simulations</span>
+                        <span class="skill-pill px-4 py-2 bg-gradient-to-r from-red-500 to-orange-500 rounded-full text-white transition-all">Virtual Screening</span>
+                        <span class="skill-pill px-4 py-2 bg-gradient-to-r from-fuchsia-500 to-purple-500 rounded-full text-white transition-all">Drug Design (LLMs)</span>
+                        <span class="skill-pill px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full text-white transition-all">CRISPR Design</span>
+                        <span class="skill-pill px-4 py-2 bg-gradient-to-r from-green-500 to-teal-500 rounded-full text-white transition-all">Genome Annotation</span>
+                        <span class="skill-pill px-4 py-2 bg-gradient-to-r from-yellow-500 to-red-500 rounded-full text-white transition-all">Pathway Analysis</span>
+                        <span class="skill-pill px-4 py-2 bg-gradient-to-r from-pink-500 to-rose-500 rounded-full text-white transition-all">Network Biology</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gradient-to-b from-black to-gray-900">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">Professional <span class="gradient-text">Experience</span></h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-olive-dark to-sage mx-auto"></div>
+        </div>
+        
+        <div class="neon-border p-1 rounded-lg max-w-3xl mx-auto">
+            <div class="bg-gray-900 rounded-lg p-8">
+                <div class="relative pl-8 pb-8 timeline-item">
+                    <div class="absolute left-0 w-4 h-4 rounded-full bg-sage top-1"></div>
+                    <h3 class="text-xl font-bold text-white">Postdoctoral Researcher - Computational Immunology</h3>
+                    <p class="text-olive-dark">Federal University of Santa Catarina</p>
+                    <div class="text-gray-300 mt-4 space-y-4">
+                        <p class="flex items-start">
+                            <span class="mr-2">•</span>
+                            <span>Engaged in interdisciplinary discussions and scientific data discussions, translating complex data into clear, actionable insights.</span>
+                        </p>
+                        <p class="flex items-start">
+                            <span class="mr-2">•</span>
+                            <span>Supported early-career researchers in project design and analysis, fostering autonomy and scientific development.</span>
+                        </p>
+                        <p class="flex items-start">
+                            <span class="mr-2">•</span>
+                            <span>Contributed to the articulation of scientific content for diverse audiences, including technical documentation, project proposals, and educational content in both English and Portuguese.</span>
+                        </p>
+                        <p class="flex items-start">
+                            <span class="mr-2">•</span>
+                            <span>Maintained up-to-date knowledge of technological and regulatory advances relevant to biomedical innovation, particularly within the context of rare diseases and precision medicine.</span>
+                        </p>
+                        <p class="flex items-start">
+                            <span class="mr-2">•</span>
+                            <span>Served as liaison between research teams and external stakeholders, aligning scientific goals with real-world applications.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-black">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">Featured <span class="gradient-text">Projects</span></h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-olive-dark to-sage mx-auto"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project 1 -->
+            <div class="project-card neon-border p-1 rounded-lg transition-all duration-300">
+                <div class="bg-gray-900 rounded-lg p-6 h-full flex flex-col">
+                    <i class="fas fa-robot text-4xl mb-4" style="background: linear-gradient(45deg, #b1b695, #646755); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">AI Peptide Therapeutics</h3>
+                    <p class="text-gray-300 mb-4 flex-grow">Engineered peptide therapeutics using Large Language Models for Alpha-1 Antitrypsin Deficiency (AATD) with potential translational applications.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full text-xs text-white">LLMs</span>
+                        <span class="px-3 py-1 bg-gradient-to-r from-amber-500 to-pink-500 rounded-full text-xs text-white">Molecular Docking</span>
+                        <span class="px-3 py-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full text-xs text-white">MD Simulations</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card neon-border p-1 rounded-lg transition-all duration-300">
+                <div class="bg-gray-900 rounded-lg p-6 h-full flex flex-col">
+                    <i class="fas fa-database text-4xl mb-4" style="background: linear-gradient(45deg, #b1b695, #646755); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Medicinal Plant Database</h3>
+                    <p class="text-gray-300 mb-4 flex-grow">Designed a comprehensive biological database of medicinal plant metabolites with Django backend and interactive frontend features.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full text-xs text-white">Django</span>
+                        <span class="px-3 py-1 bg-gradient-to-r from-amber-500 to-pink-500 rounded-full text-xs text-white">Database Design</span>
+                        <span class="px-3 py-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full text-xs text-white">Full Stack</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card neon-border p-1 rounded-lg transition-all duration-300">
+                <div class="bg-gray-900 rounded-lg p-6 h-full flex flex-col">
+                    <i class="fas fa-brain text-4xl mb-4" style="background: linear-gradient(45deg, #b1b695, #646755); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">CRC Drug Screening</h3>
+                    <p class="text-gray-300 mb-4 flex-grow">Screened drug candidates for Colorectal Cancer using Machine Learning/Deep Learning models with high predictive accuracy.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full text-xs text-white">ML/DL</span>
+                        <span class="px-3 py-1 bg-gradient-to-r from-amber-500 to-pink-500 rounded-full text-xs text-white">Drug Discovery</span>
+                        <span class="px-3 py-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full text-xs text-white">Virtual Screening</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 4 -->
+            <div class="project-card neon-border p-1 rounded-lg transition-all duration-300">
+                <div class="bg-gray-900 rounded-lg p-6 h-full flex flex-col">
+                    <i class="fas fa-project-diagram text-4xl mb-4" style="background: linear-gradient(45deg, #b1b695, #646755); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Viral Coinfection Analysis</h3>
+                    <p class="text-gray-300 mb-4 flex-grow">Mapped key targets in Parvovirus B19 and HHV-6 coinfection using advanced network analysis techniques to identify potential therapeutic targets.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full text-xs text-white">Network Biology</span>
+                        <span class="px-3 py-1 bg-gradient-to-r from-amber-500 to-pink-500 rounded-full text-xs text-white">Viral Pathogenesis</span>
+                        <span class="px-3 py-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full text-xs text-white">System Biology</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 5 -->
+            <div class="project-card neon-border p-1 rounded-lg transition-all duration-300">
+                <div class="bg-gray-900 rounded-lg p-6 h-full flex flex-col">
+                    <i class="fas fa-dna text-4xl mb-4" style="background: linear-gradient(45deg, #b1b695, #646755); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">DIPG Biomarker Discovery</h3>
+                    <p class="text-gray-300 mb-4 flex-grow">Led collaborative research with French scientists on microarray and RNASeq datasets to identify biomarkers and therapeutic targets in Diffuse Intrinsic Pontine Glioma.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full text-xs text-white">RNASeq</span>
+                        <span class="px-3 py-1 bg-gradient-to-r from-amber-500 to-pink-500 rounded-full text-xs text-white">Microarray</span>
+                        <span class="px-3 py-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full text-xs text-white">Biomarkers</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 6 -->
+            <div class="project-card neon-border p-1 rounded-lg transition-all duration-300">
+                <div class="bg-gray-900 rounded-lg p-6 h-full flex flex-col">
+                    <i class="fas fa-atom text-4xl mb-4" style="background: linear-gradient(45deg, #b1b695, #646755); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Protein Simulations</h3>
+                    <p class="text-gray-300 mb-4 flex-grow">Simulated 3HTB and NPRS1 proteins using GROMACS and NAMD/VMD to analyze protein stability and dynamic behavior under various conditions.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full text-xs text-white">GROMACS</span>
+                        <span class="px-3 py-1 bg-gradient-to-r from-amber-500 to-pink-500 rounded-full text-xs text-white">NAMD/VMD</span>
+                        <span class="px-3 py-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full text-xs text-white">Protein Dynamics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gradient-to-b from-gray-900 to-black">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">Get In <span class="gradient-text">Touch</span></h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-olive-dark to-sage mx-auto"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-12">
+            <div>
+                <h3 class="text-2xl font-bold text-white mb-6">Let's collaborate on interesting computational biology problems!</h3>
+                <p class="text-gray-300 mb-8">
+                    I'm always open to discussing research opportunities, collaborations, or just chatting about the latest in computational biology and bioinformatics. Feel free to reach out through any of the channels below.
+                </p>
+                
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <i class="fas fa-envelope text-2xl mr-4 gradient-text"></i>
+                        <a href="mailto:beatrizmacedoor@gmail.com" class="text-gray-300 hover:text-olive-dark transition-colors">beatrizmacedoor@gmail.com</a>
+                    </div>
+
+                    <div class="flex items-center">
+                        <i class="fab fa-linkedin-in text-2xl mr-4 gradient-text"></i>
+                        <a href="https://linkedin.com/in/beatrizmacedoor" target="_blank" class="text-gray-300 hover:text-cyan-400 transition-colors">linkedin.com/in/beatrizmacedoor</a>
+                    </div>
+                </div>
+            </div>
+            
+            <form class="neon-border p-1 rounded-lg">
+                <div class="bg-gray-900 rounded-lg p-8">
+                    <div class="mb-6">
+                        <label for="name" class="block text-gray-300 mb-2">Name</label>
+                        <input type="text" id="name" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-olive-dark text-white">
+                    </div>
+                    <div class="mb-6">
+                        <label for="email" class="block text-gray-300 mb-2">Email</label>
+                        <input type="email" id="email" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-sage text-white">
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-300 mb-2">Message</label>
+                        <textarea id="message" rows="4" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-pastel-green text-white"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-gradient-to-r from-olive-dark to-sage text-black px-6 py-3 rounded-full font-bold hover:opacity-90 transition-all">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 px-4 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="gradient-text text-2xl font-bold mb-6">BEATRIZ ROCHA</h2>
+            <p class="text-gray-400 mb-8">Biologist & Data Scientist | Postdoctoral Researcher</p>
+            
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="https://linkedin.com/in/beatrizmacedoor" class="text-gray-400 hover:text-olive-dark transition-colors">
+                    <i class="fab fa-linkedin-in text-xl"></i>
+                </a>
+                <a href="https://github.com/beatriz-macedo" class="text-gray-400 hover:text-sage transition-colors">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+                <a href="mailto:beatrizmacedoor@gmail.com" class="text-gray-400 hover:text-pastel-yellow transition-colors">
+                    <i class="fas fa-envelope text-xl"></i>
+                </a>
+            </div>
+            
+            <p class="text-gray-500 text-sm">© 2025 Beatriz Rocha. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Form submission handling
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                // Here you would typically send the data to a server
+                console.log('Form submitted:', { name, email, message });
+                
+                // Show success message
+                alert('Thank you for your message! I will get back to you soon.');
+                
+                // Reset form
+                contactForm.reset();
+            });
+        }
+        
+        // Animate elements when they come into view
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeIn');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.project-card, .timeline-item, .skill-pill').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
